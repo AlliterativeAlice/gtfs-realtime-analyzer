@@ -1,15 +1,25 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "GTFS Analyzer",
+  "name": "GTFS Realtime Feed Analyzer",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/x-icon",
+      "sizes": "48x48 32x32 16x16"
+    },
+    {
+      "src": "android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "android-chrome-384x384.png",
+      "type": "image/png",
+      "sizes": "384x384"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
+  "start_url": "./index.html",
+  "display": "browser",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }

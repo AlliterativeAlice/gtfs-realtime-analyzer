@@ -1,0 +1,29 @@
+.copy-feed-json-button {
+    background-color: #0097e6;
+    margin-left: 10px;
+}
+
+.copy-message {
+    padding: 16px;
+    opacity: 0;
+    border: 2px solid #0097e6;
+    border-radius: 7px;
+    background-color: #fff;
+    font-size: 38px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    animation: fade-in-out 2s;
+    box-shadow: 0 0 8px #fff;
+}
+
+@keyframes fade-in-out {
+    0% {opacity: 0}
+    20% {opacity: 1}
+    80% {opacity: 1}
+    100% {opacity: 0}
+}

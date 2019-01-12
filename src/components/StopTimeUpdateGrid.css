@@ -1,0 +1,3 @@
+.stop-time-updates .rt-tbody {
+    height: calc(100vh - 300px);
+}
