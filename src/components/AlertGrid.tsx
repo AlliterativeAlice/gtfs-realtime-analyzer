@@ -18,8 +18,8 @@ export default class AlertGrid extends React.Component<IAlertGridProps> {
         return informedEntities.map((informedEntity, i) => {
             if (!informedEntity) { return <p key={i}>N/A</p> }
             const informedEntityStrArr = [];
-            if (informedEntity.agencyId) { informedEntityStrArr.push(`Agency {informedEntity.agencyId}`); }
-            if (informedEntity.routeId) { informedEntityStrArr.push(`Route ${informedEntity.routeType} ${informedEntity.routeId}`); }
+            if (informedEntity.agencyId) { informedEntityStrArr.push(`Agency ${informedEntity.agencyId}`); }
+            if (informedEntity.routeId) { informedEntityStrArr.push(`Route ${informedEntity.routeType || ''} ${informedEntity.routeId || ''}`); }
             if (informedEntity.stopId) { informedEntityStrArr.push(`Stop ${informedEntity.stopId}`); }
             if (informedEntity.trip) { informedEntityStrArr.push(`Trip ${informedEntity.trip.tripId}`); }
             return <p key={i}>{informedEntityStrArr.length > 0 ? informedEntityStrArr.join(', ') : 'N/A'}</p>
