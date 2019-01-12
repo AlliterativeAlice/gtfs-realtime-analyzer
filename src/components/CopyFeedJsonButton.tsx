@@ -20,7 +20,7 @@ export default class CopyFeedJsonButton extends React.Component<ICopyFeedJsonBut
         }
     }
 
-    input: HTMLInputElement | null = null;
+    input: HTMLTextAreaElement | null = null;
     
     public performCopy = () => {
         if (this.input && !this.state.isCopied) {
@@ -37,10 +37,9 @@ export default class CopyFeedJsonButton extends React.Component<ICopyFeedJsonBut
         return (
             <React.Fragment>
                 <button className="button copy-feed-json-button" onClick={this.performCopy}>Copy Feed JSON to Clipboard</button>
-                <input
+                <textarea
                     ref={(input) => this.input = input}
-                    type="text"
-                    defaultValue={ JSON.stringify(this.props.feedMessage, null, "\t") }
+                    defaultValue={ JSON.stringify(this.props.feedMessage, null, 2) }
                     style={{ position: 'fixed', top: '-1000px' }} />
 
                 {this.state.isCopied && <div className="copy-message"><p>Copied!</p></div>}
