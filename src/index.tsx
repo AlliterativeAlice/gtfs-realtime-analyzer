@@ -1,3 +1,8 @@
+import 'react-app-polyfill/ie11';
+import 'array-find-polyfill';
+import 'array-findindex-polyfill';
+import 'core-js/es6/number';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

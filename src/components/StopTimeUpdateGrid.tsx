@@ -27,14 +27,14 @@ export default class StopTimeUpdateGrid extends React.Component<IStopTimeUpdateG
     public render() {
         if (!this.props.stopTimeUpdates) { return null; }
         return (
-            <ReactTable className="stop-time-updates" data={this.props.stopTimeUpdates} columns={[
+            <ReactTable minRows={1} className="stop-time-updates" data={this.props.stopTimeUpdates} columns={[
                 { id: 'stopId', Header: 'Stop ID', accessor: s => s.stopId || 'N/A' },
                 { id: 'seq', Header: 'Sequence', accessor: s => s.stopSequence || 'N/A' },
                 { id: 'arrivalDelay', Header: 'Arrival Delay', accessor: s => !s.arrival || (!s.arrival.delay && s.arrival.delay !== 0) ? 'N/A' : s.arrival.delay },
-                { id: 'arrivalTime', Header: 'Arrival Time', accessor: s => formatTimestamp(s.arrival ? s.arrival.time : undefined) },
+                { id: 'arrivalTime', Header: 'Arrival Time', accessor: s => s.arrival ? s.arrival.time : undefined, Cell: props => formatTimestamp(props.value) },
                 { id: 'arrivalUncertainty', Header: 'Arrival Uncertainty', accessor: s => !s.arrival || (!s.arrival.uncertainty && s.arrival.uncertainty !== 0) ? 'N/A' : s.arrival.uncertainty },
                 { id: 'departureDelay', Header: 'Departure Delay', accessor: s => !s.departure || (!s.departure.delay && s.departure.delay !== 0) ? 'N/A' : s.departure.delay },
-                { id: 'departureTime', Header: 'Departure Time', accessor: s => formatTimestamp(s.departure ? s.departure.time : undefined) },
+                { id: 'departureTime', Header: 'Departure Time', accessor: s => s.departure ? s.departure.time : undefined, Cell: props => formatTimestamp(props.value) },
                 { id: 'departureUncertainty', Header: 'Departure Uncertainty', accessor: s => !s.departure || (!s.departure.uncertainty && s.departure.uncertainty !== 0) ? 'N/A' : s.departure.uncertainty },
                 { id: 'scheduleRelationship', Header: 'Schedule Relationship', accessor: s => getEnumKeyFromValue(s.scheduleRelationship, StopTimeScheduleRelationship) }
             ]} />

@@ -1,0 +1,18 @@
+.close-modal {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    color: #999;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+.ReactModal__Overlay {
+    z-index: 2;
+}

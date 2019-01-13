@@ -84,4 +84,5 @@ p {
 .rt-tbody {
   height: auto;
   overflow: visible !important;
+  text-align: center;
 }

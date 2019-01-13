@@ -24,7 +24,7 @@ export default class VehiclePositionGrid extends React.Component<IVehiclePositio
         const vehicles = this.props.vehiclePositions.filter(v => !!v.vehicle);
 
         return (
-            <ReactTable data={vehicles} columns={[
+            <ReactTable minRows={1}  data={vehicles} columns={[
                 { id: 'id', Header: 'ID', accessor: v => v.id },
                 { id: 'isDeleted', Header: 'Is Deleted', accessor: v => typeof v.isDeleted === 'boolean' ? v.isDeleted.toString() : 'N/A'},
                 { id: 'vehicleId', Header: 'Vehicle ID', accessor: v => v.vehicle!.vehicle && v.vehicle!.vehicle!.id ? v.vehicle!.vehicle!.id : 'N/A' },
@@ -40,7 +40,7 @@ export default class VehiclePositionGrid extends React.Component<IVehiclePositio
                 { id: 'odometer', Header: 'Odometer', accessor: v => v.vehicle!.position && v.vehicle!.position!.odometer ? v.vehicle!.position!.odometer : 'N/A' },
                 { id: 'speed', Header: 'Speed', accessor: v => v.vehicle!.position && v.vehicle!.position!.speed ? v.vehicle!.position!.speed : 'N/A' },
                 { id: 'stopId', Header: 'Stop ID', accessor: v => v.vehicle!.stopId || 'N/A' },
-                { id: 'timestamp', Header: 'Timestamp', accessor: v => formatTimestamp(v.vehicle!.timestamp) },
+                { id: 'timestamp', Header: 'Timestamp', accessor: v => v.vehicle!.timestamp, Cell: props => formatTimestamp(props.value) },
                 { id: 'tripId', Header: 'Trip ID', accessor: v => v.vehicle!.trip && v.vehicle!.trip!.tripId ? v.vehicle!.trip!.tripId : 'N/A' },
                 { id: 'directionId', Header: 'Direction ID', accessor: v => v.vehicle!.trip && v.vehicle!.trip!.directionId ? v.vehicle!.trip!.directionId : 'N/A' },
                 { id: 'routeId', Header: 'Route ID', accessor: v => v.vehicle!.trip && v.vehicle!.trip!.routeId ? v.vehicle!.trip!.routeId : 'N/A' },

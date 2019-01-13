@@ -9,6 +9,11 @@ import FeedInformation from './components/FeedInformation';
 import { getFeedMessageFromBinaryString } from './util/ParseFeedUtil';
 import CopyFeedJsonButton from './components/CopyFeedJsonButton';
 
+import { ReactTableDefaults } from 'react-table'
+
+// Create a default cell renderer so that all grid cells will have the full cell contents appear on hover
+ReactTableDefaults.column.Cell = props => typeof props.value === 'string' ? <span title={props.value}>{props.value}</span> : props.value;
+
 export interface IAppProps {
     isEditMode?: boolean;
 }
@@ -33,7 +38,7 @@ class App extends React.Component<IAppProps, IAppState> {
             const fr = new FileReader();
             fr.onload = (e) => {
                 try {
-                    const message = getFeedMessageFromBinaryString(fr.result!.toString());
+                    const message = getFeedMessageFromBinaryString(fr.result as ArrayBuffer);
                     
                     this.setState({feedMessage: message});
                 }
@@ -46,7 +51,7 @@ class App extends React.Component<IAppProps, IAppState> {
                     }
                 }
             }
-            fr.readAsBinaryString(file);
+            fr.readAsArrayBuffer(file);
     }
 
     public fileSelected = (ev: React.ChangeEvent<HTMLInputElement>) => {
