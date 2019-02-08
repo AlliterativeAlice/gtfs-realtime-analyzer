@@ -17,6 +17,18 @@ p {
   margin: 0;
 }
 
+.authorship {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0;
+}
+
+.authorship a {
+  color: #0366d6;
+}
+
 .button {
   border: none;
   color: white;

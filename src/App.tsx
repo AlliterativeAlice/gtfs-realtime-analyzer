@@ -76,7 +76,7 @@ class App extends React.Component<IAppProps, IAppState> {
 
     public render() {
         return (
-            <ReactDropzone ref={this.assignDropzone} onDrop={this.onDrop} disableClick={true}>
+            <ReactDropzone ref={this.assignDropzone} onDrop={this.onDrop} disableClick={true} accept=".pb,.bin">
                 {({getRootProps, getInputProps, isDragActive}) => {
                     return (
                         <div {...getRootProps({tabIndex: undefined})} className="app">
@@ -88,6 +88,7 @@ class App extends React.Component<IAppProps, IAppState> {
                             <CopyFeedJsonButton feedMessage={this.state.feedMessage} />
                             <FeedInformation feedMessage={this.state.feedMessage} />
                             {this.state.feedError && <p style={{color: 'red'}}>Parsing GTFS feed failed with the following error: {this.state.feedError}</p>}
+                            <p className="authorship">Created by Alice MacKel. <a href="https://github.com/AlliterativeAlice/gtfs-realtime-analyzer" target="_blank" rel="noopener noreferrer">Check out the code on GitHub.</a></p>
                         </div>
                     )
                 }}
